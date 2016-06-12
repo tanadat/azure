@@ -34,7 +34,6 @@
     }
   },
   "variables": {
-    "extensionName": "CustomScript",
     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
     "sizeOfDiskInGB": "100",
     "dataDisk1VhdName": "datadisk1",
@@ -187,7 +186,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmName'), variables('extensionName'))]",
+      "name": "testwin01/installaspnet",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
       "dependsOn": [
