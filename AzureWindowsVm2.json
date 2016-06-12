@@ -6,12 +6,22 @@
       "type": "string",
       "metadata": {
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-      }
+      },
+      "webSiteLocation": {
+            "value": "West US"
+      },
+      "adminPassword": {
+            "reference": {
+               "keyVault": {
+                  "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+               }, 
+               "secretName": "sqlAdminPassword" 
+            }   
+        }
     }
   },
   "variables": {
-    "adminUsername": "cloudadmin",
-    "adminPassword": "P@ssw0rdMicrosoft",    
+    "adminUsername": "cloudadmin", 
     "windowsOSVersion": "2012-R2-Datacenter", 
     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
     "sizeOfDiskInGB": "60",
