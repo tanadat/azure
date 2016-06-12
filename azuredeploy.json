@@ -142,15 +142,6 @@
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]"
         },
-        "publisher": "Microsoft.Powershell",
-        "type": "DSC",
-        "typeHandlerVersion": "1.7",
-        "settings": {
-          "ModulesUrl": "https://raw.githubusercontent.com/tanadat/azure/master/InstallASPNET.zip",
-          "ConfigurationFunction": "InstallASPNET.ps1\\ConfigureAspNet",
-          "Properties": {
-          }
-        },
         "storageProfile": {
           "imageReference": {
             "publisher": "[variables('imagePublisher')]",
@@ -189,6 +180,25 @@
           "bootDiagnostics": {
             "enabled": "true",
             "storageUri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net')]"
+          }
+        }
+        
+      },
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[variables('vmName')]",
+      "apiVersion": "[variables('apiVersion')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', 'testwin01')]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "1.7",
+        "settings": {
+          "ModulesUrl": "https://raw.githubusercontent.com/tanadat/azure/master/InstallASPNET.zip",
+          "ConfigurationFunction": "InstallASPNET.ps1\\ConfigureAspNet",
+          "Properties": {
           }
         }
       }
