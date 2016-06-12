@@ -142,6 +142,15 @@
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]"
         },
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "1.7",
+        "settings": {
+          "ModulesUrl": "https://raw.githubusercontent.com/tanadat/azure/master/InstallASPNET.zip",
+          "ConfigurationFunction": "InstallASPNET.ps1\\ConfigureAspNet",
+          "Properties": {
+          }
+        },
         "storageProfile": {
           "imageReference": {
             "publisher": "[variables('imagePublisher')]",
