@@ -146,7 +146,7 @@
         "type": "DSC",
         "typeHandlerVersion": "1.7",
         "settings": {
-          "ModulesUrl": "http://tsmatsuz-demo01.azurewebsites.net/InstallASPNET.zip",
+          "ModulesUrl": "https://raw.githubusercontent.com/tanadat/azure/master/InstallASPNET.zip",
           "ConfigurationFunction": "InstallASPNET.ps1\\ConfigureAspNet",
           "Properties": {
           }
